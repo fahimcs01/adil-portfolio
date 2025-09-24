@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background: #fff;
+      color: #111;
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      border-bottom: 1px solid #eee;
+    }
+
+    header .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      font-size: 20px;
+      color: #111;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #001aff;
+    }
+
+    header nav ul li a.active {
+      color: #001aff;
+      font-weight: bold;
+    }
+
+
+    .nav-main{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      font-size: 20px;
+      color: #111;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #001aff;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 80px 200px;
+      gap: 40px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero-left h3 {
+      font-size: 20px;
+      color: #000fd6;
+      margin-bottom: 10px;
+    }
+
+    .hero-left h1 {
+      font-size: 64px;
+      line-height: 1.2;
+      font-weight: bold;
+    }
+
+    .hero-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    .hero-right p {
+      font-size: 25px;
+      line-height: 1.5;
+      color: #111;
+    }
+
+    .btn-primary {
+      padding: 20px 35px;
+      background: #0c20d3;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .btn-primary:hover {
+      background: #000fd6;
+    }
+
+    /* Work Preview */
+    .work {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px 60px;
+    }
+
+    .work img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .work img:hover {
+      transform: translateY(-5px);
+    }
+
+    @media(max-width: 900px) {
+      .hero-text {
+        flex-direction: column;
+        text-align: center;
+      }
+      .work {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script>
+    function exploreWork() {
+      document.getElementById("work").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Hello User.</div>
+    <div class="nav-main">
+    <nav>
+      <ul>
+        <li><a href="#">Web</a></li>
+        <li><a href="#">App</a></li>
+        <li><a href="#">Graphic</a></li>
+        <li><a href="#">About me</a></li>
+        <li><a href="#" class="active">Resume</a></li>
+      </ul>
+    </nav>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-left">
+        <h3>👋 Hi, I’m Aadil Ansari</h3>
+        <h1>Designing apps & websites people love to use.</h1>
+      </div>
+      <div class="hero-right">
+        <p>2.5+ years in UI/UX and 3 years in Graphic, I build digital products that are clear, creative, and made for users to love.</p>
+        <a href="#work" class="btn-primary" onclick="exploreWork()">Explore my work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Preview -->
+  <section class="work" id="work">
+    <img src="Screenshot 2025-09-19 205417.png" alt="Work 1">
+    <img src="Screenshot 2025-09-19 205447.png" alt="Work 2">
+    <img src="Screenshot 2025-09-19 205525.png" alt="Work 3">
+  </section>
+</body>
+</html>
