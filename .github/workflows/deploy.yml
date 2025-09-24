@@ -1,21 +1,21 @@
-name: Deploy Static Site to GitHub Pages
+name: CI/CD to Render
 
-# Trigger workflow on every push to master branch
 on:
   push:
     branches:
-      - master
+      - master   # Trigger on every push to master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v6
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./   # Path to your HTML/CSS/JS files (root folder)
+    - name: Deploy to Render
+      env:
+        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      run: |
+        curl -X POST "https://api.render.com/deploy/srv-d3a2o8jipnbc7399dq00" \
+        -H "Authorization: Bearer $RENDER_API_KEY"
