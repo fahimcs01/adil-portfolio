@@ -1,0 +1,21 @@
+name: Deploy Static Site to GitHub Pages
+
+# Trigger workflow on every push to master branch
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v6
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./   # Path to your HTML/CSS/JS files (root folder)
