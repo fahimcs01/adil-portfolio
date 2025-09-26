@@ -1,20 +1,30 @@
 name: Deploy to Render
 
+# Trigger on push to master branch, only if static site files change
 on:
   push:
     branches:
-      - master   # or the branch you want to deploy from
+      - master   # change if your main branch is different
+    paths:
+      - 'index.html'
+      - 'css/**'
+      - 'js/**'
+      - 'assets/**'
+      - 'images/**'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Checkout repository
     - name: Checkout code
       uses: actions/checkout@v4
 
+    # Step 2: Trigger Render deployment
     - name: Trigger Render Deploy
       run: |
+        echo "Deploying static site to Render..."
         curl -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
         -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
         -H "Content-Type: application/json" \
