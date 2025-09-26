@@ -85,13 +85,22 @@
       flex-direction: column;
       cursor: pointer;
       gap: 4px;
+      padding: 8px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-toggle:hover {
+      background: rgba(0, 26, 255, 0.1);
     }
 
     .mobile-menu-toggle span {
       width: 25px;
       height: 3px;
       background: #111;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      transform-origin: center;
+      border-radius: 2px;
     }
 
     /* Hero Section */
@@ -237,6 +246,7 @@
         padding: 15px 20px;
       }
       
+      /* Hide desktop navigation and show mobile toggle */
       .nav-main {
         position: fixed;
         top: 70px;
@@ -251,6 +261,7 @@
         transition: right 0.3s ease;
         z-index: 1000;
         border-top: 1px solid #eee;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
       }
       
       .nav-main.active {
@@ -270,26 +281,54 @@
       
       .nav-main nav ul li a {
         font-size: 24px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-main nav ul li a:hover {
+        background: rgba(0, 26, 255, 0.1);
       }
       
       .social-icons {
         padding-bottom: 40px;
+        gap: 20px;
       }
       
+      .social-icons a {
+        font-size: 24px;
+        padding: 10px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+      
+      .social-icons a:hover {
+        background: rgba(0, 26, 255, 0.1);
+      }
+      
+      /* Show mobile menu toggle */
       .mobile-menu-toggle {
         display: flex;
       }
       
+      /* Hamburger to X animation */
       .mobile-menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(6px, 6px);
+        background: #001aff;
       }
       
       .mobile-menu-toggle.active span:nth-child(2) {
         opacity: 0;
+        transform: scale(0);
       }
       
       .mobile-menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
+        background: #001aff;
+      }
+      
+      .mobile-menu-toggle.active {
+        background: rgba(0, 26, 255, 0.1);
       }
       
       .hero {
