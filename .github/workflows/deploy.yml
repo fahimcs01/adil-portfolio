@@ -1,9 +1,9 @@
-name: CI/CD to Render
+name: Deploy to Render
 
 on:
   push:
     branches:
-      - master   # Trigger on every push to master
+      - main   # or the branch you want to deploy from
 
 jobs:
   deploy:
@@ -11,11 +11,11 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Deploy to Render
-      env:
-        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+    - name: Trigger Render Deploy
       run: |
-        curl -X POST "https://api.render.com/deploy/srv-d3a2o8jipnbc7399dq00" \
-        -H "Authorization: Bearer $RENDER_API_KEY"
+        curl -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
+        -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+        -H "Content-Type: application/json" \
+        -d '{"clearCache": true}'
